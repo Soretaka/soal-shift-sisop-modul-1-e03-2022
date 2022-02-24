@@ -1,3 +1,4 @@
+#!/bin/bash
 lines=0
 unamelist=[]
 passlist=[]
