@@ -12,12 +12,12 @@ do
      echo "unamelist masukin:$line di $index"
      fi
 ((lines++))
-done < 'user.txt'
+done < './users/user.txt'
 echo "masukan username: "
 read username
 echo "masukan password: "
 read -s password
-#echo -e "uname: $username\npassword: $password"
+echo -e "uname: $username\npassword: $password"
 #checking password
 if [ ${#password} -ge 8 ]
 then
@@ -59,17 +59,16 @@ for i in "${unamelist[@]}"
 do
      if [ "$i" == "$username" ]
      then
-          echo "loh udah ada usernamenya"
-          echo -n "$(date +'%m/%d/%Y %H:%M:%S ')" >> log.txt
-          echo "REGISTER: ERROR User already exists" >> log.txt
+          echo -n "$(date +'%m/%d/%Y %H:%M:%S ')" >> ./log.txt
+          echo "REGISTER: ERROR User already exists" >> ./log.txt
           flag=0
      fi
 done
 if [ $flag -eq 1 ]
 then
-     echo -n "$(date +'%m/%d/%Y %H:%M:%S ')" >> log.txt
-     echo "REGISTER: INFO User $username registered successfully" >> log.txt
+     echo -n "$(date +'%m/%d/%Y %H:%M:%S ')" >> ./log.txt
+     echo "REGISTER: INFO User $username registered successfully" >> ./log.txt
+     echo -e "$username\n$password" >> ./users/user.txt
 else
      echo "regis gagal"
 fi
-#echo -e "$username\n$password" >> user.txt
