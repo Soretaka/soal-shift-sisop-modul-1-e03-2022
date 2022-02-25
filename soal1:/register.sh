@@ -2,6 +2,14 @@
 flag=1
 lines=0
 unamelist=[]
+if ! [[ -d "users" ]]
+then
+    mkdir users
+fi
+if ! [[ -f "users/user.txt" ]]
+then
+    touch users/user.txt
+fi
 while read line
 do
      mod=$(($lines%2))
@@ -59,15 +67,15 @@ for i in "${unamelist[@]}"
 do
      if [ "$i" == "$username" ]
      then
-          echo -n "$(date +'%m/%d/%Y %H:%M:%S ')" >> ./log.txt
-          echo "REGISTER: ERROR User already exists" >> ./log.txt
+          echo -n "$(date +'%m/%d/%Y %H:%M:%S ')" >> log.txt
+          echo "REGISTER: ERROR User already exists" >> log.txt
           flag=0
      fi
 done
 if [ $flag -eq 1 ]
 then
-     echo -n "$(date +'%m/%d/%Y %H:%M:%S ')" >> ./log.txt
-     echo "REGISTER: INFO User $username registered successfully" >> ./log.txt
+     echo -n "$(date +'%m/%d/%Y %H:%M:%S ')" >> log.txt
+     echo "REGISTER: INFO User $username registered successfully" >> log.txt
      echo -e "$username\n$password" >> ./users/user.txt
 else
      echo "regis gagal"

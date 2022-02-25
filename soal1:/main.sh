@@ -2,6 +2,14 @@
 lines=0
 unamelist=[]
 passlist=[]
+if ! [[ -d "users" ]]
+then
+    mkdir users
+fi
+if ! [[ -f "users/user.txt" ]]
+then
+    touch users/user.txt
+fi
 while read line
 do
      mod=$(($lines%2))
@@ -9,11 +17,11 @@ do
      then
      unamelist[$index]="$line"
      ((index++))
-     echo "unamelist ke $index adalah $line"
+     #echo "unamelist ke $index adalah $line"
      else
      passlist[$passindex]="$line"
      ((passindex++))
-     echo "pass ke $passindex adalah $line"
+     #echo "pass ke $passindex adalah $line"
      fi
 ((lines++))
 done < './users/user.txt'
@@ -36,6 +44,7 @@ do
     else
         echo -n "$(date +'%m/%d/%Y %H:%M:%S ')" >> ./log.txt
         echo "LOGIN: ERROR Failed login attempt on user $username" >> ./log.txt
+        echo "password salah!"
     fi
 ((index++))
 done
@@ -45,7 +54,6 @@ then
     read com num
     if [ "$com" == "att" ] 
         then
-            echo "$username"
             grep -wc "LOGIN.*$username\|$username.*LOGIN" ./log.txt
         else
             if [[ "$com" == "dl" ]]; then
