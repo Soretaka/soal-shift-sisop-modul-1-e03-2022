@@ -23,7 +23,7 @@ echo "silahkan login: "
 echo "masukan username: "
 read username
 echo "masukan password: "
-read password
+read -s password
 index=0
 for i in "${unamelist[@]}"
 do
