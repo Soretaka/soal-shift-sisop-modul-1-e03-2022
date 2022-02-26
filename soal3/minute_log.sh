@@ -2,14 +2,12 @@
 user=$(whoami)
 if ! [[ -d /home/"$user"/log ]]
 then
-    echo "ada"
     mkdir /home/"$user"/log
 fi
 folder="metrics_agg_$(TZ=Asia/Jakarta date -d '1 hour ago' +'%Y%m%d%H')"
 file="metrics_$(TZ=Asia/Jakarta date +'%Y%m%d%H%M%S')"
 if ! [[ -d /home/"$user"/log/$folder ]]
     then
-        echo "ada"
         mkdir /home/"$user"/log/$folder
 fi
 #minute_log.sh
