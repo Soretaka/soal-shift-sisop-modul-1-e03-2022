@@ -3,7 +3,7 @@ Daniel Hermawan - 5025201087 <br />
 Florentino Benedictus - 5025201222 <br />
 Anak Agung Yatestha Parwata - 5025201234 <br />
 
-<h1> Soal no 1 <\h1> <br />
+<h1> Soal no 1 </h1> <br />
 Soal no 1 menyuruh kita untuk membuat sistem login dengan register. Register terdapat dalam file register.sh dan sistem login terdapat pada file main.sh. Setiap akun memiliki username dan password dan akun disimpan dalam user.txt. Password memiliki ketentuan sebagai berikut: <br />
 1.Minimal 8 karakter <br />
 2.Memiliki minimal 1 huruf kapital dan 1 huruf kecil <br />
