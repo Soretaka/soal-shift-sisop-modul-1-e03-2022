@@ -36,5 +36,5 @@ do
      fi
 ((lines++))
 done < './users/user.txt'
-``` <br />
+``` 
 potongan kode diatas terdapat dalam file main.sh dan register.sh dimana fungsinya sama yaitu untuk membaca username dan password yang ada dalam file users.txt
