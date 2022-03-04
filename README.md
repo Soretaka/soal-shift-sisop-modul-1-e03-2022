@@ -81,7 +81,7 @@ Karena `minute_log.sh` harus dijalankan tiap menit, kita dapat menambahkan line 
 ```
  
 ### aggregate_minutes_to_hourly_log.sh 
-Script bash yang kedua (`aggregate_minutes_to_hourly_log.sh`) akan menggabungkan file log yang dibuat minute_log.sh dan akan menyimpan nilai minimum, maximum, dan rata-rata tiap metrics setiap jam. Caranya adalah dengan membaca seluruh file log yang berada dalam folder `metrics_agg_$(YmdH)`.
+Script bash yang kedua (`aggregate_minutes_to_hourly_log.sh`) akan menggabungkan file log yang dibuat `minute_log.sh` dan akan menyimpan nilai minimum, maximum, dan rata-rata tiap metrics setiap jam. Caranya adalah dengan membaca seluruh file log yang berada dalam folder `metrics_agg_$(YmdH)`.
  
 ```bash
 mem_total_avg=$((mem_totalavg/index))
