@@ -128,5 +128,5 @@ Agar `aggregate_minutes_to_hourly_log.sh` dapat dijalankan tiap jam, kita dapat 
 0 * * * * /{path aggregate_minutes_to_hourly_log.sh}
 ```
  
-###Evaluasi Soal No. 3
+### Evaluasi Soal No. 3
 Sebaiknya kedua file script bash diletakkan pada `/home/{user}` . Alasannya untuk menghindari error akibat permission access yang menyebabkan crontab tidak berjalan.
