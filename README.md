@@ -49,3 +49,84 @@ do
 done < './users/user.txt'
 ``` 
 potongan kode diatas terdapat dalam file main.sh dan register.sh dimana fungsinya sama yaitu untuk membaca username dan password yang ada dalam file users.txt
+
+
+
+## Soal no 3
+Dalam soal ini, kita diminta untuk membuat program yang memonitor ram dan size directory `/home/{user}` dengan cara memasukkan metrics kedalam file log secara periodik.
+ 
+### minute_log.sh 
+```bash
+folder="metrics_agg_$(TZ=Asia/Jakarta date -d '1 hour ago' +'%Y%m%d%H')"
+file="metrics_$(TZ=Asia/Jakarta date +'%Y%m%d%H%M%S')"
+```
+ 
+Script bash yang pertama (`minute_log.sh`) akan memasukkan metrics ke dalam file dengan format `metrics_{YmdHms}.log` setiap menitnya. Script ini juga akan membuat folder dalam directory log dengan format `metrics_agg_$(YmdH)` dengan nilai H merupakan 1 jam sebelum script dijalankan. Tujuannya agar file log yang digenerate tiap menit tidak berceceran.
+ 
+```bash
+echo "mem_total,mem_used,mem_free,mem_shared,mem_buff,mem_available,swap_total,swap_used,swap_free,path,path_size" >> /home/"$user"/log/$folder/"$file.log"
+ 
+free -m | awk '/[0-9]+/{for (i=2; i<NF; i++) printf $i ","; print $NF}' ORS="," >> /home/"$user"/log/$folder/"$file.log"
+du -sh /home/"$user" | awk '/[0-9]+/{print $2","$1}' >> /home/"$user"/log/$folder/"$file.log"
+ 
+chown "$user" "/home/"$user"/log/$folder"
+```
+ 
+Untuk menyesuaikan formatting dari soal, maka kita perlu untuk memodifikasi Field Separator (FS) dan Record Separator (RS) yang ada ketika akan memasukkan metrics ke file log. Selanjutnya, kita menggunakan chown agar log hanya dapat dibaca user.<br/><br/>
+ 
+Karena `minute_log.sh` harus dijalankan tiap menit, kita dapat menambahkan line berikut pada crontab (`crontab -e`):
+ 
+```
+* * * * * /{path minute_log.sh}
+```
+ 
+### aggregate_minutes_to_hourly_log.sh 
+Script bash yang kedua (`aggregate_minutes_to_hourly_log.sh`) akan menggabungkan file log yang dibuat minute_log.sh dan akan menyimpan nilai minimum, maximum, dan rata-rata tiap metrics setiap jam. Caranya adalah dengan membaca seluruh file log yang berada dalam folder `metrics_agg_$(YmdH)`.
+ 
+```bash
+mem_total_avg=$((mem_totalavg/index))
+mem_used_avg=$((mem_usedavg/index))
+mem_free_avg=$((mem_freeavg/index))
+mem_shared_avg=$((mem_sharedavg/index))
+mem_buff_avg=$((mem_buffavg/index))
+mem_available_avg=$((mem_availableavg/index))
+swap_total_avg=$((swap_totalavg/index))
+swap_used_avg=$((swap_usedavg/index))
+swap_free_avg=$((swap_freeavg/index))
+path_size_avg=$((path_sizeavg/index))
+```
+ 
+Untuk mendapatkan nilai average, kita dapat mencatat index, yaitu jumlah file log yang terdapat dalam folder. Selanjutnya kita juga akan mencatat nilai sum/total dari masing-masing metrics yang kemudian akan dibagi dengan index untuk mendapatkan nilai average.
+ 
+```bash
+mem_total_sorted=($(for i in "${mem_total[@]}"; do echo "$i"; done | sort -n))
+mem_used_sorted=($(for i in "${mem_used[@]}"; do echo "$i"; done | sort -n))
+mem_free_sorted=($(for i in "${mem_free[@]}"; do echo "$i"; done | sort -n))
+mem_shared_sorted=($(for i in "${mem_shared[@]}"; do echo "$i"; done | sort -n))
+mem_buff_sorted=($(for i in "${mem_buff[@]}"; do echo "$i"; done | sort -n))
+mem_available_sorted=($(for i in "${mem_available[@]}"; do echo "$i"; done | sort -n))
+swap_total_sorted=($(for i in "${swap_total[@]}"; do echo "$i"; done | sort -n))
+swap_used_sorted=($(for i in "${swap_used[@]}"; do echo "$i"; done | sort -n))
+swap_free_sorted=($(for i in "${swap_free[@]}"; do echo "$i"; done | sort -n))
+path_size_sorted=($(for i in "${path_size[@]}"; do echo "$i"; done | sort -n))
+```
+```bash
+file_dir="/home/$user/log/$folder"
+echo "type,mem_total,mem_used,mem_free,mem_shared,mem_buff,mem_available,swap_total,swap_used,swap_free,path,path_size" > "$file_dir.log"
+echo "minimum,${mem_total_sorted[0]},${mem_used_sorted[0]},${mem_free_sorted[0]},${mem_shared_sorted[0]},${mem_buff_sorted[0]},${mem_available_sorted[0]},${swap_total_sorted[0]},${swap_used_sorted[0]},${swap_free_sorted[9]},$path_dir,${path_size_sorted[0]}M" >> "$file_dir.log"
+echo "maximum,${mem_total_sorted[$index]},${mem_used_sorted[$index]},${mem_free_sorted[$index]},${mem_shared_sorted[$index]},${mem_buff_sorted[$index]},${mem_available_sorted[$index]},${swap_total_sorted[$index]},${swap_used_sorted[$index]},${swap_free_sorted[$index]},$path_dir,${path_size_sorted[$index]}M" >> "$file_dir.log"
+echo "average,$mem_total_avg,$mem_used_avg,$mem_free_avg,$mem_shared_avg,$mem_buff_avg,$mem_available_avg,$swap_total_avg,$swap_used_avg,$swap_free_avg,$path_dir,$path_size_avg""M" >> "$file_dir.log"
+ 
+chown "$user" "$file_dir.log"
+```
+ 
+Selanjutnya, untuk mendapat nilai minimum dan maximum kita dapat menyimpan masing-masing value metrics ke dalam array lalu melakukan sort sehingga nilai minimum masing-masing metrics akan berada pada index paling awal dan nilai maximum masing-masing metrics akan berada pada index paling akhir. Kita juga akan menggunakan chown agar log hanya dapat dibaca user.<br/><br/>
+ 
+Agar `aggregate_minutes_to_hourly_log.sh` dapat dijalankan tiap jam, kita dapat menambahkan line berikut pada crontab:
+ 
+```
+0 * * * * /{path aggregate_minutes_to_hourly_log.sh}
+```
+ 
+###Evaluasi Soal No. 3
+Sebaiknya kedua file script bash diletakkan pada `/home/{user}` . Alasannya untuk menghindari error akibat permission access yang menyebabkan crontab tidak berjalan.
