@@ -27,39 +27,40 @@ echo "masukan password: "
 read -s password
 echo -e "uname: $username\npassword: $password"
 #checking password
-if [ ${#password} -ge 8 ]
+if ! [ "$username" == "$password" ]
 then
-     if ! [[ "$password" =~ [^a-zA-Z0-9] ]]; then
-          if [[ "$password" =~ [?=.*a-z] ]]; then
-               if [[ "$password" =~ [?=.*A-Z] ]]; then
-                    if [[ "$password" =~ [?=.*0-9] ]]; then
-                         echo "VALID"
+     if [ ${#password} -ge 8 ]
+     then
+          if ! [[ "$password" =~ [^a-zA-Z0-9] ]]; then
+               if [[ "$password" =~ [?=.*a-z] ]]; then
+                    if [[ "$password" =~ [?=.*A-Z] ]]; then
+                         if [[ "$password" =~ [?=.*0-9] ]]; then
+                              echo "VALID"
+                         else
+                              echo "ga ada angka"
+                              flag=0
+                         fi
                     else
-                         echo "ga ada angka"
+                         echo "ga ada huruf besar"
                          flag=0
                     fi
                else
-                    echo "ga ada huruf besar"
+                    echo "ga ada huruf kecil"
                     flag=0
                fi
           else
-               echo "ga ada huruf kecil"
+               echo "ga alphanumeric bro"
                flag=0
           fi
      else
-          echo "ga alphanumeric bro"
           flag=0
+          echo "kurang panjang bro"
      fi
 else
-     flag=0
-     echo "kurang panjang bro"
+     flog=0
+     echo "username dan password sama"
 fi
 
-if [ "$username" == "$password" ]
-then
-     echo "loh sama"
-     flag=0
-fi
 #done
 
 #checking username
