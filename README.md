@@ -301,19 +301,6 @@ fi
 ```
 Pertama, kode diatas akan berjalan yang berfungsi untuk membuat folder dengan nama **forensic_log_website_daffainfo_log**. Terdapat beberapa kondisional untuk beberapa kasus seperti jika folder tersebut sudah ada maka akan dihapus dan dibuat folder yang baru dan kosong. Jika tidak ada folder dengan nama serupa, maka akan langsung dibuat.  
 
-**Hasil run :**
-![image](https://drive.google.com/uc?export=view&id=1EVO1tHh3EYRcpwlZfIFJArvkB4OsS1hx)  
-Eksekusi script soal2_forensic_dapos.sh
-
-![image](https://drive.google.com/uc?export=view&id=1QZY15m-vemz0LzsjKvubiQMXF1FD5CwA)  
-Folder forensic_log_website_daffainfo_log dibuat
-
-![image](https://drive.google.com/uc?export=view&id=1Rgsfg8qb0H6Xvg3LNjzCzj9Cnn9CZ6vQ)  
-Rata-rata request per jam
-
-![image](https://drive.google.com/uc?export=view&id=1Pfpv8u3WISlB9Y7Y44Vv-5KFnzV1SHl4)  
-IP dengan jumlah request terbanyak, request user-agent curl, dan IP yang request pada jam 2 pagi tanggal 22
-
 
 ### Rata-rata request per jam
 ```bash
@@ -361,6 +348,26 @@ cat "log_website_daffainfo.log" | awk -F ":" '
 ```
 Terakhir, kode diatas berfungsi untuk mengekstrak alamat IP yang melakukan request pada pukul 2 pagi tanggal 22 yang dapat dilihat dari rekam jejak waktu di tiap baris log dengan pola **2022:02** yang berarti tahun 2022 pad pukul 2 pagi. Setelah alamat IP di ekstrak, kemudian akan disimpan di folder **forensic_log_website_daffainfo_log** dengan digabungkan di file **result.txt** yang sebelumnya sudah dibuat. 
 
+
+**Hasil run :**
+![image](https://drive.google.com/uc?export=view&id=1EVO1tHh3EYRcpwlZfIFJArvkB4OsS1hx)  
+Eksekusi script soal2_forensic_dapos.sh
+
+![image](https://drive.google.com/uc?export=view&id=1QZY15m-vemz0LzsjKvubiQMXF1FD5CwA)  
+Folder forensic_log_website_daffainfo_log dibuat
+
+![image](https://drive.google.com/uc?export=view&id=1Rgsfg8qb0H6Xvg3LNjzCzj9Cnn9CZ6vQ)  
+Rata-rata request per jam
+
+![image](https://drive.google.com/uc?export=view&id=1Pfpv8u3WISlB9Y7Y44Vv-5KFnzV1SHl4)  
+IP dengan jumlah request terbanyak, request user-agent curl, dan IP yang request pada jam 2 pagi tanggal 22
+
+
+**Jika gambar tidak terlihat dapat mengunjungi : https://drive.google.com/drive/folders/1NzQHkXjBCu2786Wou_t0xm8gllx4lkBW?usp=sharing**
+
+
+### Kendala
+Tidak ada.
 
 ## Soal no 3
 Dikerjakan oleh **Anak Agung Yatestha Parwata (5025201234),Florentino Benedictus (5025201222)**
