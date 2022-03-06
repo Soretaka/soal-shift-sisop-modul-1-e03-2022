@@ -98,6 +98,9 @@ fi
 
 digunakan untuk mengecek apakah password sudah sesuai dengan persyaratan
 
+hasil run:
+
+![image](https://drive.google.com/uc?export=view&id=1aHAcLVdAXZiecelt7I3NbMfIhnPG3Y7F)
 ```bash
 for i in "${unamelist[@]}"
 do
@@ -112,6 +115,9 @@ done
 
 digunakan untuk mengecek apakah username sudah ada di dalam user.txt atau belum
 
+hasil run:
+
+![image](https://drive.google.com/uc?export=view&id=1VTPQWeReSzNxQXnV00RdPN9IkpxoQ0YF)
 ```bash
 if [ $flag -eq 1 ]
 then
@@ -122,9 +128,11 @@ else
      echo "regis gagal"
 fi
 ```
-
 digunakan untuk mengecek apakah registrasi berhasil atau tidak, jika berhasil akan dimasukan kedalam log dan user, jika tidak maka pengguna akan diberitahu regis gagal.
 
+hasil run:
+
+![image](https://drive.google.com/uc?export=view&id=1DgBEnkYDa8i2Fb1_3djtwyIvee7dKB_F)
 ### main.sh
 
 ```bash
