@@ -311,6 +311,37 @@ END {
 ```
 Selanjutnya, kode diatas akan berjalan yang berguna untuk menghitung rata-rata request tiap jam. Kode tersebut akan mengekstrak informasi rekam jejak waktu yang akan dijumlahkan serta dibagi dengan rentang waktu yang tercatat. Setelah didapatkan rata-rata request per jam, hasilnya akan dicetak dan disimpan di folder forensic_log_website_daffainfo_log dengan nama file **ratarata.txt**.
 
+## IP dengan request paling banyak
+```bash
+cat "log_website_daffainfo.log" | awk -F ":" 'NR!=1 {request[$1]++}
+END {
+    max=0
+    for (i in request){
+        if(max < request[i]){
+            freqreq=i
+            max=request[i]
+        }
+    }
+    printf "IP yang paling banyak mengakses server adalah: " freqreq " sebanyak " max " requests\n"
+}' >> forensic_log_website_daffainfo_log/result.txt
+```
+Ketiga, kode diatas digunakan untuk mendata alamat IP yang melakukan request dan menghitung berapa banyak request yang dilakukan oleh alamat IP tersebut. Setelah itu akan dicari alamat IP yang melakukan paling banyak lalu hasilnya akan dimasukkan ke folder **forensic_log_website_daffainfo_log** dengan nama file **result.txt**.
+
+## Request dengan user-agent curl
+```bash
+cat "log_website_daffainfo.log" | awk '
+/curl/ {++n}
+END { print "ada " n " requests yang menggunakan curl sebagai user-agent\n" }'>> forensic_log_website_daffainfo_log/result.txt
+```
+Berikutnya, akan dilakukan pencarian request yang memiliki user-agent bernama curl dimana setiap ditemukan kata **curl** di baris log akan menambahkan variabel **n** sebanyak 1. Setelah proses penelusuran dan telah di total di variabel **n**, akan dimasukkan hasilnya ke dalam folder **forensic_log_website_daffainfo_log** dengan nama file **result.txt**. Namun, karena nama file **result.txt** telah dibuat sebelumnya dan kita menggunakan simbol **>>**, makan hasil dari kode diatas akan digabungnya dengan isi dari folder **result.txt** yang telah dibuat sebelumnya.
+
+## IP yang melakukan request pada jam 2 pagi tanggal 22
+```bash
+cat "log_website_daffainfo.log" | awk -F ":" '
+/2022:02/ { print $1 }' >> forensic_log_website_daffainfo_log/result.txt
+```
+Terakhir, kode diatas berfungsi untuk mengekstrak alamat IP yang melakukan request pada pukul 2 pagi tanggal 22 yang dapat dilihat dari rekam jejak waktu di tiap baris log dengan pola **2022:02** yang berarti tahun 2022 pad pukul 2 pagi. Setelah alamat IP di ekstrak, kemudian akan disimpan di folder **forensic_log_website_daffainfo_log** dengan digabungkan di file **result.txt** yang sebelumnya sudah dibuat. 
+
 
 ## Soal no 3
 Dikerjakan oleh **Anak Agung Yatestha Parwata (5025201234),Florentino Benedictus (5025201222)**
