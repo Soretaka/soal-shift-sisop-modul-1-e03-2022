@@ -58,7 +58,7 @@ read -s password
 digunakan untuk membaca username dan password
 
 hasil run:
-![login_pass](https://drive.google.com/file/d/1zWw47rA8gHC51pnM8BYlGFOSCSptvIGN/view?usp=sharing)
+![login_pass](https://drive.google.com/file/d/1zWw47rA8gHC51pnM8BYlGFOSCSptvIGN)
 ```bash
 if ! [ "$username" == "$password" ]
 then
