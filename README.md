@@ -177,6 +177,9 @@ read -s password
 
 baris tersebut berfungsi untuk menerima input username dan password dari pengguna, variabel flaglogin kedepannya digunakan sebagai penanda apakah pengguna berhasil login atau tidak.
 
+hasil run:
+
+![image](https://drive.google.com/uc?export=view&id=12AQQh8eFtKw3DKi8EbWX1zPKzenib4i4)
 ```bash
 index=0
 for i in "${unamelist[@]}"
@@ -198,6 +201,10 @@ done
 
 baris tersebut berfungsi untuk mengecek apakah username dan password pengguna sesuai dengan yang ada di user.txt, jika pengguna berhasil login maka flaglogin diganti menjadi 1.
 
+hasil run:
+
+![image](https://drive.google.com/uc?export=view&id=1q5B4uZnVlxcK053Cm1Evl7NvNn7atFd7)
+
 ```bash
 if [ $flaglogin == 1 ]
 then
@@ -207,6 +214,9 @@ then
 
 baris tersebut berfungsi untuk mengecek apakah pengguna berhasil login? jika iya maka akan menerima input command sesuai dengan soal, dan jika tidak maka tidak akan ada yang terjadi.
 
+hasil run:
+
+![image](https://drive.google.com/uc?export=view&id=1EJKVjkEvmiufNKKNYjMue0MhGu2nI864)
 ```bash
     if [ "$com" == "att" ] 
         then
@@ -214,6 +224,9 @@ baris tersebut berfungsi untuk mengecek apakah pengguna berhasil login? jika iya
 ```
 Jika command yang diberikan adalah "att", maka pengguna akan menerima berapa kali username pengguna mencoba login baik yang berhasil mapun tidak berhasil, karena pada log setiap percobaan login memiliki kata "LOGIN:" maka kita dapat mengecek berapa banyak kombinasi kata "LOGIN: " digabung dengan username pengguna menggunakan grep.
 
+hasil run:
+
+![image](https://drive.google.com/uc?export=view&id=1g5bdA6IdkQnB2-14RPetSBqjX8OFsJ0c)
 ```bash
 if [[ "$com" == "dl" ]]; then
             j=0
@@ -242,6 +255,13 @@ if [[ "$com" == "dl" ]]; then
 ```
 Jika command yang diberikan adalah "dl", maka kita mengecek terlebih dahulu apakah file dengan format YYYY-MM-DD_username.zip sudah ada? jika belum maka kita membuat sebuah directory dengan format YYYY-MM-DD_username, jika sudah maka kita unzip terlebih dahulu file tersebut menggunakan unzip -p, lalu hapus file folder.zip tersebut. Setelah itu, kita menghitung ada berapa banyak file yang ada didalam folder untuk melanjutkan penamaan file yang didownload, setelah itu, kita hanya perlu melakukan looping untuk mendownload file, lalu kita zip directory tersebut.
 
+hasil run:
+
+![image](https://drive.google.com/uc?export=view&id=1Sc5ClxlkqcXe6BrzHKEmBZzVU1KSuETf)
+
+![image](https://drive.google.com/uc?export=view&id=1vzo3qI6zNAPXRsuELjeDOZAEjwCI84yD)
+
+![image](https://drive.google.com/uc?export=view&id=1MPNVcvzXPhnzX5748EfbqqhhbqxzvAPj)
 ```bash
             else
             echo "belum tau perintah :("
