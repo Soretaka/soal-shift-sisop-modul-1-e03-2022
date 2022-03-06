@@ -14,7 +14,7 @@ Dikerjakan oleh **Anak Agung Yatestha Parwata (5025201234)**
 
 Soal no 1 menyuruh kita untuk membuat sistem login dengan register. Register terdapat dalam file register.sh dan sistem login terdapat pada file main.sh. Setiap akun memiliki username dan password dan akun disimpan dalam user.txt. Password memiliki ketentuan sebagai berikut:
 
-1.Minimal 8 karakter 
+1.Minimal 8 karakter  
 
 2.Memiliki minimal 1 huruf kapital dan 1 huruf kecil
 
@@ -275,16 +275,41 @@ digunakan jika command yang dimasukan pengguna diluar command att dan dl.
 tidak ada
 
 ## Soal no 2
-Dikerjakan oleh **Daniel Hermawan (5025201087) dan Anak Agung Yatestha Parwata (5025201234)**
+Dikerjakan oleh **Daniel Hermawan (5025201087) dan Anak Agung Yatestha Parwata (5025201234)**  
 
-Di soal nomor 2, kita diberikan sebuah log website daffainfo dengan nama **file log_website_daffainfo.log**. Kita diminta untuk mengolah dan mengekstrak beberapa data yang terdapat pada log tersebut seperti :
-     1. Membuat folder bernama forensic_log_website_daffainfo_log terlebih dahulu.
-     2. Menghitung rata-rata request yang terjadi setiap jam.
-     3. Mengeluarkan IP yang paling sering melakukan request.
-     4. Menghitung berapa banyak request yang menggunakan user-agent curl.
-     5. Mengekstrak semua alamat IP yang melakukan request pada jam 2 pagi tanggal 22.
+Di soal nomor 2, kita diberikan sebuah log website daffainfo dengan nama **file log_website_daffainfo.log**. Kita diminta untuk mengolah dan mengekstrak beberapa data yang terdapat pada log tersebut seperti :  
+     1. Membuat folder bernama forensic_log_website_daffainfo_log terlebih dahulu.  
+     2. Menghitung rata-rata request yang terjadi setiap jam.  
+     3. Mengeluarkan IP yang paling sering melakukan request.  
+     4. Menghitung berapa banyak request yang menggunakan user-agent curl.  
+     5. Mengekstrak semua alamat IP yang melakukan request pada jam 2 pagi tanggal 22.  
 
-### Membuat Folder forensic_log_website_daffainfo_log
+### Membuat Folder forensic_log_website_daffainfo_log 
+```bash
+if ! [[ -d "forensic_log_website_daffainfo_log" ]]
+then
+    mkdir "forensic_log_website_daffainfo_log"
+else
+    rm -r "forensic_log_website_daffainfo_log"
+    mkdir "forensic_log_website_daffainfo_log"
+fi
+```
+Pertama, kode diatas akan berjalan yang berfungsi untuk membuat folder dengan nama **forensic_log_website_daffainfo_log**. Terdapat beberapa kondisional untuk beberapa kasus seperti jika folder tersebut sudah ada maka akan dihapus dan dibuat folder yang baru dan kosong. Jika tidak ada folder dengan nama serupa, maka akan langsung dibuat.  
+
+### Rata-rata request per jam
+```bash
+cat "log_website_daffainfo.log" | awk -F ":" 'NR!=1 {request[$3]++}
+END {
+        for (i in request){
+            hours++
+            average+=request[i]
+        }
+        hours-=1
+        average=average/hours
+        printf "Rata-rata serangan adalah sebanyak %.2f requests per jam", average
+    }' > forensic_log_website_daffainfo_log/ratarata.txt
+```
+Selanjutnya, kode diatas akan berjalan yang berguna untuk menghitung rata-rata request tiap jam. Kode tersebut akan mengekstrak informasi rekam jejak waktu yang akan dijumlahkan serta dibagi dengan rentang waktu yang tercatat. Setelah didapatkan rata-rata request per jam, hasilnya akan dicetak dan disimpan di folder forensic_log_website_daffainfo_log dengan nama file **ratarata.txt**.
 
 
 ## Soal no 3
