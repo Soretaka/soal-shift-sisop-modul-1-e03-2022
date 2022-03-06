@@ -10,7 +10,8 @@ Angota:
 3. Anak Agung Yatestha Parwata (5025201234)
 
 ## Soal no 1
-Dikerjakan oleh Anak Agung Yatestha Parwata (5025201234)
+Dikerjakan oleh **Anak Agung Yatestha Parwata (5025201234)**
+
 Soal no 1 menyuruh kita untuk membuat sistem login dengan register. Register terdapat dalam file register.sh dan sistem login terdapat pada file main.sh. Setiap akun memiliki username dan password dan akun disimpan dalam user.txt. Password memiliki ketentuan sebagai berikut:
 
 1.Minimal 8 karakter 
@@ -274,6 +275,8 @@ digunakan jika command yang dimasukan pengguna diluar command att dan dl.
 tidak ada
 
 ## Soal no 3
+Dikerjakan oleh **Anak Agung Yatestha Parwata (5025201234),Florentino Benedictus (5025201222)**
+
 Dalam soal ini, kita diminta untuk membuat program yang memonitor ram dan size directory `/home/{user}` dengan cara memasukkan metrics kedalam file log secara periodik.
  
 ### minute_log.sh 
