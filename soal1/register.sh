@@ -57,7 +57,7 @@ then
           echo "kurang panjang bro"
      fi
 else
-     flog=0
+     flag=0
      echo "username dan password sama"
 fi
 
