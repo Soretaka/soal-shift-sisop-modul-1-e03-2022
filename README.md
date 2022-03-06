@@ -302,16 +302,16 @@ fi
 Pertama, kode diatas akan berjalan yang berfungsi untuk membuat folder dengan nama **forensic_log_website_daffainfo_log**. Terdapat beberapa kondisional untuk beberapa kasus seperti jika folder tersebut sudah ada maka akan dihapus dan dibuat folder yang baru dan kosong. Jika tidak ada folder dengan nama serupa, maka akan langsung dibuat.  
 
 **Hasil run :**
-![eksekusi script](https://drive.google.com/uc?export=view&id=1CxIvH-Sl4QPmOlGrlbqp1-oq7Z2Xc40Y)  
+![eksekusi script](https://drive.google.com/uc?export=view&id=1EVO1tHh3EYRcpwlZfIFJArvkB4OsS1hx)  
 Eksekusi script soal2_forensic_dapos.sh
 
-![folder created](https://drive.google.com/uc?export=view&id=1jAY-d_jL3gwQ6-ysK_mBcVXm3rtOro1I)  
+![folder created](https://drive.google.com/uc?export=view&id=1QZY15m-vemz0LzsjKvubiQMXF1FD5CwA)  
 Folder forensic_log_website_daffainfo_log dibuat
 
-![request rate per hour](https://drive.google.com/uc?export=view&id=1-8W9vG4OyN0lor2wUAzzO144VWW1GN7s)  
+![request rate per hour](https://drive.google.com/uc?export=view&id=1Rgsfg8qb0H6Xvg3LNjzCzj9Cnn9CZ6vQ)  
 Rata-rata request per jam
 
-![result.txt result](https://drive.google.com/uc?export=view&id=1vyfWalpN8wX95PWYk9dD-7yLXaME1aov)  
+![result.txt result](https://drive.google.com/uc?export=view&id=1Pfpv8u3WISlB9Y7Y44Vv-5KFnzV1SHl4)  
 IP dengan jumlah request terbanyak, request user-agent curl, dan IP yang request pada jam 2 pagi tanggal 22
 
 
