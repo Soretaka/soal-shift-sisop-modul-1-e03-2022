@@ -238,6 +238,9 @@ Jika command yang diberikan adalah "dl", maka kita mengecek terlebih dahulu apak
 ```
 digunakan jika command yang dimasukan pengguna diluar command att dan dl.
 
+### kendala
+tidak ada
+
 ## Soal no 3
 Dalam soal ini, kita diminta untuk membuat program yang memonitor ram dan size directory `/home/{user}` dengan cara memasukkan metrics kedalam file log secara periodik.
  
