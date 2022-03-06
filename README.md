@@ -279,10 +279,15 @@ Dikerjakan oleh **Daniel Hermawan (5025201087) dan Anak Agung Yatestha Parwata (
 
 Di soal nomor 2, kita diberikan sebuah log website daffainfo dengan nama **file log_website_daffainfo.log**. Kita diminta untuk mengolah dan mengekstrak beberapa data yang terdapat pada log tersebut seperti :  
      1. Membuat folder bernama forensic_log_website_daffainfo_log terlebih dahulu.  
+
      2. Menghitung rata-rata request yang terjadi setiap jam.  
+
      3. Mengeluarkan IP yang paling sering melakukan request.  
+
      4. Menghitung berapa banyak request yang menggunakan user-agent curl.  
+
      5. Mengekstrak semua alamat IP yang melakukan request pada jam 2 pagi tanggal 22.  
+
 
 ### Membuat Folder forensic_log_website_daffainfo_log 
 ```bash
@@ -295,6 +300,20 @@ else
 fi
 ```
 Pertama, kode diatas akan berjalan yang berfungsi untuk membuat folder dengan nama **forensic_log_website_daffainfo_log**. Terdapat beberapa kondisional untuk beberapa kasus seperti jika folder tersebut sudah ada maka akan dihapus dan dibuat folder yang baru dan kosong. Jika tidak ada folder dengan nama serupa, maka akan langsung dibuat.  
+
+**Hasil run :**
+![image](https://drive.google.com/file/d/1CxIvH-Sl4QPmOlGrlbqp1-oq7Z2Xc40Y/view?usp=sharing)
+Eksekusi script soal2_forensic_dapos.sh
+
+![image](https://drive.google.com/file/d/1jAY-d_jL3gwQ6-ysK_mBcVXm3rtOro1I/view?usp=sharing)
+Folder forensic_log_website_daffainfo_log dibuat
+
+![image](https://drive.google.com/file/d/1-8W9vG4OyN0lor2wUAzzO144VWW1GN7s/view?usp=sharing)
+Rata-rata request per jam
+
+![image](https://drive.google.com/file/d/1vyfWalpN8wX95PWYk9dD-7yLXaME1aov/view?usp=sharing)
+IP dengan jumlah request terbanyak, request user-agent curl, dan IP yang request pada jam 2 pagi tanggal 22
+
 
 ### Rata-rata request per jam
 ```bash
