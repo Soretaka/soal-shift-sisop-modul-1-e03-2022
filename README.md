@@ -3,7 +3,7 @@ Daniel Hermawan - 5025201087
 Florentino Benedictus - 5025201222
 Anak Agung Yatestha Parwata - 5025201234
 
-Angota:
+Anggota:
 
 1. Daniel Hermawan (5025201087)
 2. Florentino Benedictus (5025201222)
@@ -273,6 +273,19 @@ digunakan jika command yang dimasukan pengguna diluar command att dan dl.
 
 ### kendala
 tidak ada
+
+## Soal no 2
+Dikerjakan oleh **Daniel Hermawan (5025201087) dan Anak Agung Yatestha Parwata (5025201234)**
+
+Di soal nomor 2, kita diberikan sebuah log website daffainfo dengan nama **file log_website_daffainfo.log**. Kita diminta untuk mengolah dan mengekstrak beberapa data yang terdapat pada log tersebut seperti :
+     1. Membuat folder bernama forensic_log_website_daffainfo_log terlebih dahulu.
+     2. Menghitung rata-rata request yang terjadi setiap jam.
+     3. Mengeluarkan IP yang paling sering melakukan request.
+     4. Menghitung berapa banyak request yang menggunakan user-agent curl.
+     5. Mengekstrak semua alamat IP yang melakukan request pada jam 2 pagi tanggal 22.
+
+### Membuat Folder forensic_log_website_daffainfo_log
+
 
 ## Soal no 3
 Dikerjakan oleh **Anak Agung Yatestha Parwata (5025201234),Florentino Benedictus (5025201222)**
