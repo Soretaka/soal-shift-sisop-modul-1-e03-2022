@@ -350,14 +350,21 @@ Terakhir, kode diatas berfungsi untuk mengekstrak alamat IP yang melakukan reque
 
 
 **Hasil run :**
+
 ![image](https://drive.google.com/uc?export=view&id=1EVO1tHh3EYRcpwlZfIFJArvkB4OsS1hx)  
 Eksekusi script soal2_forensic_dapos.sh
+
+
 
 ![image](https://drive.google.com/uc?export=view&id=1QZY15m-vemz0LzsjKvubiQMXF1FD5CwA)  
 Folder forensic_log_website_daffainfo_log dibuat
 
+
+
 ![image](https://drive.google.com/uc?export=view&id=1Rgsfg8qb0H6Xvg3LNjzCzj9Cnn9CZ6vQ)  
 Rata-rata request per jam
+
+
 
 ![image](https://drive.google.com/uc?export=view&id=1Pfpv8u3WISlB9Y7Y44Vv-5KFnzV1SHl4)  
 IP dengan jumlah request terbanyak, request user-agent curl, dan IP yang request pada jam 2 pagi tanggal 22
