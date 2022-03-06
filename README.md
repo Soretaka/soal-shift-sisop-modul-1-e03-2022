@@ -10,6 +10,7 @@ Angota:
 3. Anak Agung Yatestha Parwata (5025201234)
 
 ## Soal no 1
+Dikerjakan oleh Anak Agung Yatestha Parwata (5025201234)
 Soal no 1 menyuruh kita untuk membuat sistem login dengan register. Register terdapat dalam file register.sh dan sistem login terdapat pada file main.sh. Setiap akun memiliki username dan password dan akun disimpan dalam user.txt. Password memiliki ketentuan sebagai berikut:
 
 1.Minimal 8 karakter 
