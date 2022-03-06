@@ -278,15 +278,15 @@ tidak ada
 Dikerjakan oleh **Daniel Hermawan (5025201087) dan Anak Agung Yatestha Parwata (5025201234)**  
 
 Di soal nomor 2, kita diberikan sebuah log website daffainfo dengan nama **file log_website_daffainfo.log**. Kita diminta untuk mengolah dan mengekstrak beberapa data yang terdapat pada log tersebut seperti :  
-     1. Membuat folder bernama forensic_log_website_daffainfo_log terlebih dahulu.  
+1. Membuat folder bernama forensic_log_website_daffainfo_log terlebih dahulu.  
 
-     2. Menghitung rata-rata request yang terjadi setiap jam.  
+2. Menghitung rata-rata request yang terjadi setiap jam.  
 
-     3. Mengeluarkan IP yang paling sering melakukan request.  
+3. Mengeluarkan IP yang paling sering melakukan request.  
 
-     4. Menghitung berapa banyak request yang menggunakan user-agent curl.  
+4. Menghitung berapa banyak request yang menggunakan user-agent curl.  
 
-     5. Mengekstrak semua alamat IP yang melakukan request pada jam 2 pagi tanggal 22.  
+5. Mengekstrak semua alamat IP yang melakukan request pada jam 2 pagi tanggal 22.  
 
 
 ### Membuat Folder forensic_log_website_daffainfo_log 
@@ -302,16 +302,16 @@ fi
 Pertama, kode diatas akan berjalan yang berfungsi untuk membuat folder dengan nama **forensic_log_website_daffainfo_log**. Terdapat beberapa kondisional untuk beberapa kasus seperti jika folder tersebut sudah ada maka akan dihapus dan dibuat folder yang baru dan kosong. Jika tidak ada folder dengan nama serupa, maka akan langsung dibuat.  
 
 **Hasil run :**
-![eksekusi script](https://drive.google.com/uc?export=view&id=1EVO1tHh3EYRcpwlZfIFJArvkB4OsS1hx)  
+![image](https://drive.google.com/uc?export=view&id=1EVO1tHh3EYRcpwlZfIFJArvkB4OsS1hx)  
 Eksekusi script soal2_forensic_dapos.sh
 
-![folder created](https://drive.google.com/uc?export=view&id=1QZY15m-vemz0LzsjKvubiQMXF1FD5CwA)  
+![image](https://drive.google.com/uc?export=view&id=1QZY15m-vemz0LzsjKvubiQMXF1FD5CwA)  
 Folder forensic_log_website_daffainfo_log dibuat
 
-![request rate per hour](https://drive.google.com/uc?export=view&id=1Rgsfg8qb0H6Xvg3LNjzCzj9Cnn9CZ6vQ)  
+![image](https://drive.google.com/uc?export=view&id=1Rgsfg8qb0H6Xvg3LNjzCzj9Cnn9CZ6vQ)  
 Rata-rata request per jam
 
-![result.txt result](https://drive.google.com/uc?export=view&id=1Pfpv8u3WISlB9Y7Y44Vv-5KFnzV1SHl4)  
+![image](https://drive.google.com/uc?export=view&id=1Pfpv8u3WISlB9Y7Y44Vv-5KFnzV1SHl4)  
 IP dengan jumlah request terbanyak, request user-agent curl, dan IP yang request pada jam 2 pagi tanggal 22
 
 
