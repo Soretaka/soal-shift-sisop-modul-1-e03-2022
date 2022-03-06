@@ -282,7 +282,9 @@ file="metrics_$(TZ=Asia/Jakarta date +'%Y%m%d%H%M%S')"
 ```
  
 Script bash yang pertama (`minute_log.sh`) akan memasukkan metrics ke dalam file dengan format `metrics_{YmdHms}.log` setiap menitnya. Script ini juga akan membuat folder dalam directory log dengan format `metrics_agg_$(YmdH)` dengan nilai H merupakan 1 jam sebelum script dijalankan. Tujuannya agar file log yang digenerate tiap menit tidak berceceran.
- 
+hasil run:
+
+![image](https://drive.google.com/uc?export=view&id=1V9WT60LMudbqioMkB0GYzV9A2s4WU_HJ)
 ```bash
 echo "mem_total,mem_used,mem_free,mem_shared,mem_buff,mem_available,swap_total,swap_used,swap_free,path,path_size" >> /home/"$user"/log/$folder/"$file.log"
  
@@ -341,7 +343,11 @@ chown "$user" "$file_dir.log"
 ```
  
 Selanjutnya, untuk mendapat nilai minimum dan maximum kita dapat menyimpan masing-masing value metrics ke dalam array lalu melakukan sort sehingga nilai minimum masing-masing metrics akan berada pada index paling awal dan nilai maximum masing-masing metrics akan berada pada index paling akhir. Kita juga akan menggunakan chown agar log hanya dapat dibaca user.<br/><br/>
- 
+
+hasil run:
+
+![image](https://drive.google.com/uc?export=view&id=1H-5ThDY22i7VADrI15Qbpew88eB0Fol1)
+
 Agar `aggregate_minutes_to_hourly_log.sh` dapat dijalankan tiap jam, kita dapat menambahkan line berikut pada crontab:
  
 ```
