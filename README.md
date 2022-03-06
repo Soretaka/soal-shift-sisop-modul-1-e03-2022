@@ -56,7 +56,8 @@ echo "masukan password: "
 read -s password
 ```
 digunakan untuk membaca username dan password
-
+hasil run:
+[](https://drive.google.com/file/d/1zWw47rA8gHC51pnM8BYlGFOSCSptvIGN/view?usp=sharing)
 ```bash
 if ! [ "$username" == "$password" ]
 then
